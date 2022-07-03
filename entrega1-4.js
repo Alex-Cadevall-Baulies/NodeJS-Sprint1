@@ -62,13 +62,32 @@ const bookClubBooking = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(newReservation)
         }, 2000)
-    }
-    else {
+    } else {
         let error = `Book club is booked at that time`
         reject(error)
     }
 })
 
 bookClubBooking
-.then(meetingconfirmation => console.log(meetingconfirmation))
-.catch(error => console.log(error))
+    .then(meetingconfirmation => console.log(meetingconfirmation))
+    .catch(error => console.log(error))
+
+//nivell 2 - exercici 2
+
+const number1 = 2
+const number2 = 4
+const number3 = 6
+
+function doubleNumber(number1) {
+    setTimeout(() => {
+        return console.log(number1 * number1)
+    }, 2000)
+}
+
+doubleNumber(number1)
+
+function threeTimesDouble(number1, number2, number3) {
+    return console.log(doubleNumber(number1), doubleNumber(number2), doubleNumber(number3))
+}
+
+threeTimesDouble(number1, number2, number3)
