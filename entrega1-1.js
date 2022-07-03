@@ -4,7 +4,7 @@ const userCode = "ACB"
 
 userNameAndSurname(firstName, surname)
 sayHiMessage(firstName, surname)
-provideUserName()
+provideUserName(firstName, surname)
 countArray()
 //trobaràs el nivell 3 - exercici 2 al final
 
@@ -17,10 +17,11 @@ function sayHiMessage (name, surname) {
     let lastName = surname
     let message = `Hola ${firstName} ${lastName} espero que tinguis un bon dia.`
     console.log(message)
+    return message
 }
 
 //nivell 2 - exercici 2
-function provideUserName (userCode) {return console.log(`Veig que tornes a estar aqui! ${sayHiMessage(firstName, surname)}`)}
+function provideUserName (firstName, surname) {return console.log(`Veig que tornes a estar aqui! ${sayHiMessage(firstName, surname)}`)}
 
 //nivell 3 - exercici 1
 function countArray(){
