@@ -1,6 +1,6 @@
 //nivell 1 - exercici 1
 
-const isWaterType = 'Squirtel'
+const isWaterType = 'Charmander'
 const waterStarter = new Promise ((resolve, reject) => {
     if(isWaterType !== 'Squirtel' | 'Totodile' | 'Mudkip') {
         let message = `${isWaterType} no es tipus aigua!`
@@ -53,17 +53,13 @@ let salaries = [{
 }];
 
 //nivell 2 - exercici 1
-const chosenID = 2
+const chosenID = 3
 const getEmployee = new Promise ((resolve, reject) => {
     const isIdTrue =  employees.find(employees => employees.id === chosenID)
     
     if (isIdTrue !== undefined) {
     const idName = employees.find(employees => employees.id === chosenID)
-    const idSalary = salaries.find(salaries => salaries.id === chosenID)
-    const NameSalary = []
-    NameSalary.push(idName.name)
-    NameSalary.push(idSalary.salary)
-    resolve(NameSalary)
+    resolve(idName)
     }
     
 else {
@@ -73,35 +69,19 @@ else {
 })
 
 getEmployee
-.then(resolve => console.log(resolve))
+.then(idName => console.log(`El ID ${chosenID} correspón a ${idName.name}`))
 .catch(idInformation => console.log(idInformation))
 
 //nivell 2 - exercici 2
 
-const employeeName = 'Linux Torvalds'
-const getSalary = new Promise ((resolve, reject) => {
-    const isIdTrue =  employees.find(employees => employees.name === employeeName)
-    
-    if (isIdTrue !== undefined) {
-    const idName = employees.find(employees => employees.name === employeeName)
+const getSalary = idName => {
     const idSalary = salaries.find(salaries => salaries.id === idName.id)
-    const message = `El salari de ${employeeName} és ${idSalary.salary}€.`
-    resolve(message)
+    const message = `El salari de ${idName.name} és ${idSalary.salary}€.`
+    return Promise.resolve(message)
     }
-    
-else {
-    let error = `El nom ${employeeName} no es troba a la nostra base de dades.`
-    reject(error)
-}
-})
-
-getSalary
-.then(resolve => console.log(resolve))
-.catch(idInformation => console.log(idInformation))
 
 //nivell 2 - exercici 3
 getEmployee
-.then(getSalary)
-.then(resolve => console.log(resolve))
-
-.catch(idInformation => console.log(idInformation))
+    .then(getSalary)
+    .then(resolve => console.log(resolve))
+    .catch(idInformation => console.log(idInformation))
