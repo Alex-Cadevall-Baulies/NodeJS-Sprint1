@@ -11,4 +11,4 @@ fs.writeFile('entrega1-5.txt', content, err => {if (err) {console.log(err)}})
 fs.readFile('entrega1-5.txt', (error, text) => {if (err) {console.log(error)} console.log(text.toString())})
 
 //nivell 1 - exercici 3
-const { exec } = require('child_process')
+const { spawn } = require('child_process')
