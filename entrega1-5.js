@@ -18,6 +18,3 @@ const gzip = zlib.createGzip()
 
 inp.pipe(gzip).pipe(out);
 console.log("Gzip created!")
-/*
-const { spawn } = require('child_process')
-const zipFile =  */
