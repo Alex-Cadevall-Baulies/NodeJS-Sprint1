@@ -26,7 +26,7 @@ setInterval ( () => {console.log('Espero no fer-me pesat')}, 1000)
 // nivell 2 - Exercici 2
 
 const { spawn } = require('child_process')
-const child = spawn ('dir' + carpeta, (stdout) => console.log(stdout))
+const child = spawn ('dir' + 'echo $env:USERPROFILE', (stdout) => console.log(stdout))
 
 /*
 1. determinar sistema
