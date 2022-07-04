@@ -18,3 +18,17 @@ const gzip = zlib.createGzip()
 
 inp.pipe(gzip).pipe(out);
 console.log("Gzip created!")
+
+// nivell 2 - Exercici 1
+
+setInterval ( () => {console.log('Espero no fer-me pesat')}, 1000)
+
+// nivell 2 - Exercici 2
+
+const { spawn } = require('child_process')
+const child = spawn ('dir' + carpeta, (stdout) => console.log(stdout))
+
+/*
+1. determinar sistema
+2. determinar comand per revisar carpeta
+3. determinar carpeta a revisar */
