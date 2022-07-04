@@ -1,10 +1,7 @@
 //nivell 1 - exercici 1
 
 const fs = require('fs')
-const { ConsoleWriter } = require('istanbul-lib-report')
 const content = 'We did it, they called us fools but we did it!!'
-
-
 fs.writeFile('entrega1-5.txt', content, err => {if (err) {console.log(err)}})
 
 //nivell 1 - exercici 2
@@ -24,11 +21,21 @@ console.log("Gzip created!")
 setInterval ( () => {console.log('Espero no fer-me pesat')}, 1000)
 
 // nivell 2 - Exercici 2
+const os = require('os')
+const userHomeDirectory = os.homedir()
 
-const { spawn } = require('child_process')
-const child = spawn ('dir' + 'echo $env:USERPROFILE', (stdout) => console.log(stdout))
+fs.readdir(userHomeDirectory, (err, files) => {
+    files.forEach(file => {
+      console.log(file);
+    });
+  });
 
-/*
+
+  /*const { spawn } = require('child_process')
+
+const child = spawn (dir, 'userHomeDirectory', (file) => console.log(file))
+
+
 1. determinar sistema
 2. determinar comand per revisar carpeta
 3. determinar carpeta a revisar */
