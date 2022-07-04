@@ -5,5 +5,5 @@ const { ConsoleWriter } = require('istanbul-lib-report')
 const content = 'We did it, they called us fools but we did it!!'
 
 
-fs.writeFile('C:\Users\formacio\Desktop>entrega1-5.txt', content, { flag: 'w+' }, err => {if (err) {console.log(err)}})
+fs.writeFile('entrega1-5.txt', content, err => {if (err) {console.log(err)}})
 
