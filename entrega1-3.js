@@ -65,7 +65,8 @@ let salaries = [{
 //nivell 2 - exercici 1
 const chosenID = 3
 
-const getEmployee = new Promise ((resolve, reject) => {
+const getEmployee = chosenID => {
+return new Promise ((resolve, reject) => {
     const isIdTrue =  employees.find(employees => employees.id === chosenID)
     
     if (isIdTrue !== undefined) {
@@ -77,9 +78,9 @@ else {
     let error = `El ID ${chosenID} no es troba a la nostra base de dades.`
     reject(error)
 }
-})
+})}
 
-getEmployee
+getEmployee(chosenID)
 .then(idName => console.log(`El ID ${chosenID} correspón a ${idName.name}`))
 .catch(idInformation => console.log(idInformation))
 
@@ -92,7 +93,7 @@ const getSalary = idName => {
     }
 
 //nivell 2 - exercici 3
-getEmployee
+getEmployee(chosenID)
     .then(getSalary)
     .then(resolve => console.log(resolve))
     .catch(idInformation => console.log(idInformation))
