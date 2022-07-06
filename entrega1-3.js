@@ -64,6 +64,7 @@ let salaries = [{
 
 //nivell 2 - exercici 1
 const chosenID = 3
+
 const getEmployee = new Promise ((resolve, reject) => {
     const isIdTrue =  employees.find(employees => employees.id === chosenID)
     
