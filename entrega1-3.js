@@ -96,4 +96,6 @@ const getSalary = idName => {
 getEmployee(chosenID)
     .then(getSalary)
     .then(resolve => console.log(resolve))
+
+//nivell 3 - exercici1
     .catch(idInformation => console.log(idInformation))
