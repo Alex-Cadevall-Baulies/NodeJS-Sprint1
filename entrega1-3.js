@@ -35,7 +35,6 @@ const medalInfo = (medal, trainer, callback) => {
     callback (medalInfo);
 }
 
-
 medalInfo(medal, trainer , gotMedal)
 
 
