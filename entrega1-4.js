@@ -1,3 +1,4 @@
+
 let employees = [{
     id: 1,
     name: 'Linux Torvalds'
@@ -20,7 +21,7 @@ let salaries = [{
     salary: 2000
 }];
 
-//nivell 2 - exercici 1
+//nivell 1 - exercici 1
 const chosenID = 2
 
 const getEmployee = chosenID => {
@@ -37,6 +38,11 @@ else {
     reject(error)
 }
 })}
+
+getEmployee(chosenID)
+.then(idName => console.log(`El ID ${chosenID} correspón a ${idName.name}`))
+.catch(idInformation => console.log(idInformation))
+
 
 const getSalary = idName => {
     const idSalary = salaries.find(salaries => salaries.id === idName.id)
