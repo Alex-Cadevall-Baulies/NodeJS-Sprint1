@@ -1,6 +1,5 @@
 // nivell 1 - exercici 1
-const sum = () => {return 1 + 14}
-console.log(sum())
+(() => {let result = 1 + 14; console.log(result)})()
 
 //nivell 2 - exercici 1
 let object = (parameter) => parameter
