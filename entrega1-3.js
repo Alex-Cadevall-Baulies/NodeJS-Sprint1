@@ -18,14 +18,25 @@ waterStarter
 
 
 //nivell 1 - exercici 2
+const victory = false
 
-let howManyMedals = medal  => console.log(`Has aconseguit la medalla tipus ${medal}!`)
+let gotMedal = medal  => {
+    if (!victory) {console.log(`No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`)}
+    else {console.log(`Has aconseguit la medalla tipus ${medal}!`)
+}
+}
+    
+const trainer = 'Erika'
+const medal = 'planta'
+
 
 const medalInfo = (medal, trainer, callback) => {
     const medalInfo = `${medal} de ${trainer}`
     callback (medalInfo);
 }
-medalInfo('Planta', 'Erika', howManyMedals)
+
+
+medalInfo(medal, trainer , gotMedal)
 
 
 //nivell 2
