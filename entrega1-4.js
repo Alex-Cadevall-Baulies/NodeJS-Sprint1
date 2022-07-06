@@ -4,11 +4,11 @@ let employees = [{
 }, {
     id: 2,
     name: 'Bill Gates'
-}, {
+},{
     id: 3,
     name: 'Jeff Bezos'
 }];
-
+ 
 let salaries = [{
     id: 1,
     salary: 4000
@@ -20,9 +20,8 @@ let salaries = [{
     salary: 2000
 }];
 
-//nivell 1 - exercici 1
-
-const chosenID = 3
+//nivell 2 - exercici 1
+const chosenID = 2
 
 const getEmployee = chosenID => {
 return new Promise ((resolve, reject) => {
@@ -38,10 +37,6 @@ else {
     reject(error)
 }
 })}
-
-getEmployee(chosenID)
-.then(idName => console.log(`El ID ${chosenID} correspón a ${idName.name}`))
-.catch(idInformation => console.log(idInformation))
 
 const getSalary = idName => {
     const idSalary = salaries.find(salaries => salaries.id === idName.id)
