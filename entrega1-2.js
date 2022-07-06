@@ -2,7 +2,7 @@
 (() => {let result = 1 + 14; console.log(result)})()
 
 //nivell 2 - exercici 1
-let object = (parameter) => parameter
+let object = (parameter) => {const message = {frase : parameter}; return message}
 console.log(object(`Aquesta frase es el meu paràmetre.`))
 
 //nivell 2 - exercici 2
@@ -12,12 +12,12 @@ class Persona {
         this.#name = name
     }
     getName(){
-        return this.#name
+        console.log(this.#name)
     }
 }
 
 let persona = new Persona ('Àlex')
-console.log(persona.getName())
+persona.getName()
 
 //nivell 3 - exercici 1
 class Person {
