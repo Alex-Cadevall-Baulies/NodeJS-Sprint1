@@ -44,17 +44,27 @@ getEmployee(chosenID)
 .catch(idInformation => console.log(idInformation))
 
 
-const getSalary = idName => {
-    const idSalary = salaries.find(salaries => salaries.id === idName.id)
-    const message = `El salari de ${idName.name} és ${idSalary.salary}€.`
-    return Promise.resolve(message)
+const getSalary = chosenID => {
+    return new Promise ((resolve, reject) => {
+        const isIdTrue =  salaries.find(salaries => salaries.id === chosenID)
+        
+        if (isIdTrue !== undefined) {
+        const idSalaries = salaries.find(salaries => salaries.id === chosenID)
+        resolve(idSalaries)
+        }
+        
+    else {
+        let error = `El ID ${chosenID} no es troba a la nostra base de dades.`
+        reject(error)
     }
+})}
 
-getEmployee(chosenID)
-    .then(getSalary)
-    .then(resolve => console.log(resolve))
-    .catch(idInformation => console.log(idInformation))
+getSalary(chosenID)
+.then(idSalaries => console.log(`El salari del ID ${chosenID} correspón a ${idSalaries.salary}`))
+.catch(idInformation => console.log(idInformation))
 
+
+/*
 //nivell 1 - exercici 2
 
 const isBookClubAvailable = true
@@ -97,4 +107,4 @@ function threeTimesDouble(number1, number2, number3) {
     return console.log(doubleNumber(number1), doubleNumber(number2), doubleNumber(number3))
 }
 
-threeTimesDouble(number1, number2, number3)
+threeTimesDouble(number1, number2, number3)*/
