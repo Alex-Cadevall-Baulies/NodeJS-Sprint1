@@ -1,6 +1,6 @@
 //nivell 1 - exercici 1
 
-const isWaterType = 'Charmander'
+const isWaterType = 'Squirtel'
 const waterStarter = new Promise ((resolve, reject) => {
     if(isWaterType !== 'Squirtel' | 'Totodile' | 'Mudkip') {
         let message = `${isWaterType} no es tipus aigua!`
