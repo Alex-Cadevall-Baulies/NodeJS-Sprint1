@@ -22,7 +22,7 @@ let salaries = [{
 }];
 
 //nivell 1 - exercici 1
-const chosenID = 2
+const chosenID = 4
 
 const getEmployee = chosenID => {
 return new Promise ((resolve, reject) => {
@@ -64,19 +64,25 @@ getSalary(chosenID)
 .catch(idInformation => console.log(idInformation))
 
 async function namePlusSalary(chosenID) {
-    const employee = await getEmployee(chosenID)
+    const employee = await getEmployee(chosenID) 
+    .then(idName => {return idName})
+    .catch(idInformation => console.log(idInformation))
+    
     const salary = await getSalary(chosenID)
+    .then(idSalaries => {return idSalaries})
+    .catch(idInformation => console.log(idInformation))
+
     console.log(`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`)
 }
 
 namePlusSalary(chosenID)
 
-/*
+
 //nivell 1 - exercici 2
 
 const isBookClubAvailable = true
 
-const bookClubBooking = new Promise((resolve, reject) => {
+const bookClubBooking = isBookClubAvailable => { return new Promise((resolve, reject) => {
     if (isBookClubAvailable) {
         const newReservation = {
             name: 'Bilbo MC Swaggings',
@@ -87,15 +93,21 @@ const bookClubBooking = new Promise((resolve, reject) => {
             resolve(newReservation)
         }, 2000)
     } else {
-        let error = `Book club is booked at that time`
+        let error = `El club està reservat en aquests moments. Prova un altre horari.`
         reject(error)
     }
 })
+}
 
-bookClubBooking
-    .then(meetingconfirmation => console.log(meetingconfirmation))
-    .catch(error => console.log(error))
+async function isBookClubFree(isBookClubAvailable) {
+    const reservation = await bookClubBooking(isBookClubAvailable)
+    .then(newReservation => console.log(`comanda rebuda ${newReservation}`))
+    .catch (error => console.log(error))
+}
 
+isBookClubFree(isBookClubAvailable) 
+
+/*
 //nivell 2 - exercici 2
 
 const number1 = 2
