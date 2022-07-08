@@ -1,8 +1,12 @@
 //nivell 1 - exercici 1
 
+<<<<<<< HEAD
 const isWaterType = 'Squirtel'
+=======
+const isWaterType = 'Mudkip'
+>>>>>>> e83f90baceb64fe43389fff221e918253da20055
 const waterStarter = new Promise ((resolve, reject) => {
-    if(isWaterType !== 'Squirtel' | 'Totodile' | 'Mudkip') {
+    if(isWaterType === !'Squirtel' || !'Totodile' || !'Mudkip') {
         let message = `${isWaterType} no es tipus aigua!`
         resolve(message);
     } 
@@ -18,14 +22,24 @@ waterStarter
 
 
 //nivell 1 - exercici 2
+const victory = false
 
-let howManyMedals = medal  => console.log(`Has aconseguit la medalla tipus ${medal}!`)
+let gotMedal = medal  => {
+    if (!victory) {console.log(`No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`)}
+    else {console.log(`Has aconseguit la medalla tipus ${medal}!`)
+}
+}
+    
+const trainer = 'Erika'
+const medal = 'planta'
+
 
 const medalInfo = (medal, trainer, callback) => {
     const medalInfo = `${medal} de ${trainer}`
     callback (medalInfo);
 }
-medalInfo('Planta', 'Erika', howManyMedals)
+
+medalInfo(medal, trainer , gotMedal)
 
 
 //nivell 2
@@ -53,8 +67,10 @@ let salaries = [{
 }];
 
 //nivell 2 - exercici 1
-const chosenID = 3
-const getEmployee = new Promise ((resolve, reject) => {
+const chosenID = 2
+
+const getEmployee = chosenID => {
+return new Promise ((resolve, reject) => {
     const isIdTrue =  employees.find(employees => employees.id === chosenID)
     
     if (isIdTrue !== undefined) {
@@ -66,9 +82,9 @@ else {
     let error = `El ID ${chosenID} no es troba a la nostra base de dades.`
     reject(error)
 }
-})
+})}
 
-getEmployee
+getEmployee(chosenID)
 .then(idName => console.log(`El ID ${chosenID} correspón a ${idName.name}`))
 .catch(idInformation => console.log(idInformation))
 
@@ -81,7 +97,9 @@ const getSalary = idName => {
     }
 
 //nivell 2 - exercici 3
-getEmployee
+getEmployee(chosenID)
     .then(getSalary)
     .then(resolve => console.log(resolve))
+
+//nivell 3 - exercici1
     .catch(idInformation => console.log(idInformation))
