@@ -63,6 +63,13 @@ getSalary(chosenID)
 .then(idSalaries => console.log(`El salari del ID ${chosenID} correspón a ${idSalaries.salary}`))
 .catch(idInformation => console.log(idInformation))
 
+async function namePlusSalary(chosenID) {
+    const employee = await getEmployee(chosenID)
+    const salary = await getSalary(chosenID)
+    console.log(`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`)
+}
+
+namePlusSalary(chosenID)
 
 /*
 //nivell 1 - exercici 2
