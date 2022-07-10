@@ -75,7 +75,6 @@ async function namePlusSalary(chosenID) {
     if(employee !== undefined && salary !== undefined){
     console.log(`El ID ${chosenID} correspon a ${employee} amb salari ${salary}`)
     }
-
     else if (employee === undefined && salary !== undefined){
         console.log(`${employee} El salari asignat a aquest ID es ${salary}`)
     }
