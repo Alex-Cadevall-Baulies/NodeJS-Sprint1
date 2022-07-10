@@ -19,6 +19,7 @@ readFile('entrega1-5.txt')
 
 //nivell 1 - exercici 3
 const compressDoc = document => {
+const fs = require('fs')
 const docToCompress = document
 const zlib = require("zlib")
 const inp = fs.createReadStream(docToCompress)
