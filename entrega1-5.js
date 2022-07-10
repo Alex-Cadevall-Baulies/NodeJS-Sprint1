@@ -33,7 +33,8 @@ compressDoc('entrega1-5.txt')
 
 // nivell 2 - Exercici 1
 
-setInterval ( () => {console.log('Espero no fer-me pesat')}, 1000)
+const theWorstMessage = message => {setInterval ( () => {console.log(message)}, 1000)}
+theWorstMessage(`Espero no fer-me pesat`)
 
 // nivell 2 - Exercici 2
 
