@@ -34,7 +34,7 @@ return new Promise ((resolve, reject) => {
     }
     
 else {
-    let error = `El ID ${chosenID} no es troba a la nostra base de dades.`
+    let error = `No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`
     reject(error)
 }
 })}
@@ -54,7 +54,7 @@ const getSalary = chosenID => {
         }
         
     else {
-        let error = `El ID ${chosenID} no es troba a la nostra base de dades.`
+        let error = `El ID ${chosenID} no disposa de salari.`
         reject(error)
     }
 })}
@@ -65,14 +65,28 @@ getSalary(chosenID)
 
 async function namePlusSalary(chosenID) {
     const employee = await getEmployee(chosenID) 
-    .then(idName => {return idName})
+    .then(idName => {return idName.name})
     .catch(idInformation => console.log(idInformation))
     
     const salary = await getSalary(chosenID)
-    .then(idSalaries => {return idSalaries})
+    .then(idSalaries => {return idSalaries.salary})
     .catch(idInformation => console.log(idInformation))
 
-    console.log(`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`)
+    if(employee !== undefined && salary !== undefined){
+    console.log(`El ID ${chosenID} correspon a ${employee} amb salari ${salary}`)
+    }
+
+    else if (employee === undefined && salary !== undefined){
+        console.log(`${employee} El salari asignat a aquest ID es ${salary}`)
+    }
+
+    else if (employee !== undefined && salary === undefined){
+        console.log(`${salary} El nom assignat a aquest ID es ${employee}`)
+    }
+
+    else {
+        console.log(`El ID ${chosenID} no es troba a la nostra base de dades.`)
+    }
 }
 
 namePlusSalary(chosenID)
@@ -100,7 +114,7 @@ const bookClubBooking = isBookClubAvailable => { return new Promise((resolve, re
 }
 
 async function isBookClubFree(isBookClubAvailable) {
-    const reservation = bookClubBooking(isBookClubAvailable)
+    const reservation = await bookClubBooking(isBookClubAvailable)
     .then(newReservation => {return newReservation})
     .catch (error => {return error})
     console.log(reservation)
