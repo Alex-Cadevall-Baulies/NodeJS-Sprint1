@@ -22,7 +22,7 @@ let salaries = [{
 }];
 
 //nivell 1 - exercici 1
-const chosenID = 4
+const chosenID = 2
 
 const getEmployee = chosenID => {
 return new Promise ((resolve, reject) => {
@@ -122,23 +122,26 @@ async function isBookClubFree(isBookClubAvailable) {
 
 isBookClubFree(isBookClubAvailable) 
 
-/*
+
 //nivell 2 - exercici 2
 
 const number1 = 2
 const number2 = 4
 const number3 = 6
 
-function doubleNumber(number1) {
-    setTimeout(() => {
-        return console.log(number1 * number1)
-    }, 2000)
+const doubleNumber = number1 => { return new Promise ((resolve) => {
+    const double = number1 * number1
+            setTimeout(() => {
+                resolve(double)
+            }, 2000)})
 }
 
-doubleNumber(number1)
-
-function threeTimesDouble(number1, number2, number3) {
-    return console.log(doubleNumber(number1), doubleNumber(number2), doubleNumber(number3))
+async function threeTimesDouble(number1, number2, number3) {
+    const doubleOfFirst = await doubleNumber(number1)
+    const doubleOfSecond = await doubleNumber(number2)
+    const doubleOfThird = await doubleNumber(number3)
+    const totalSum = doubleOfFirst + doubleOfSecond + doubleOfThird
+console.log(totalSum)
 }
 
-threeTimesDouble(number1, number2, number3)*/
+threeTimesDouble(number1, number2, number3)
