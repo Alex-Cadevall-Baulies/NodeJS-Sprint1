@@ -5,7 +5,7 @@
 2. Escriure "npm i -D jest" en terminal per instalar jest.
 
 ## Testejar:
-- Per testejar el codi escriu "npx jest validarEntrega1-6.test.js".
+- Per testejar el codi escriu "npx jest .\entrega1-6\__test__\validarEntrega1-6.test.js".
 
 ## Detalls del exercici:
 #### Nivell 1
