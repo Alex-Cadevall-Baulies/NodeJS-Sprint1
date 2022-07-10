@@ -18,19 +18,26 @@ readFile('entrega1-5.txt')
 
 
 //nivell 1 - exercici 3
+const compressDoc = document => {
+const docToCompress = document
 const zlib = require("zlib")
-const inp = fs.createReadStream('entrega1-5.txt')
-const out = fs.createWriteStream('entrega1-5.txt.gz')
+const inp = fs.createReadStream(docToCompress)
+const out = fs.createWriteStream(docToCompress)
 const gzip = zlib.createGzip()
 
 inp.pipe(gzip).pipe(out);
 console.log("Gzip created!")
+}
+
+compressDoc('entrega1-5.txt')
 
 // nivell 2 - Exercici 1
 
 setInterval ( () => {console.log('Espero no fer-me pesat')}, 1000)
 
 // nivell 2 - Exercici 2
+
+/*
 const os = require('os')
 const userHomeDirectory = os.homedir()
 
@@ -41,7 +48,7 @@ fs.readdir(userHomeDirectory, (err, files) => {
   });
 
 
-/*const { spawn } = require('child_process')
+const { spawn } = require('child_process')
 
 const child = spawn (dir, 'userHomeDirectory', (file) => console.log(file))
 
