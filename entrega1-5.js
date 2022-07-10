@@ -1,11 +1,19 @@
 //nivell 1 - exercici 1
-
+const documentWiriting = message => {
 const fs = require('fs')
-const content = 'We did it, they called us fools but we did it!!'
+const content = message
 fs.writeFile('entrega1-5.txt', content, err => {if (err) {console.log(err)}})
+}
+
+documentWiriting('We did it, they called us fools but we did it!!')
 
 //nivell 1 - exercici 2
-fs.readFile('entrega1-5.txt', (error, text) => {if (error) {console.log(error)} console.log(text.toString())})
+const readFile = document => {
+const docToRead = document
+fs.readFile(docToRead, (error, text) => {if (error) {console.log(error)} console.log(text.toString())})
+}
+
+readFile('entrega1-5.txt')
 
 //nivell 1 - exercici 3
 const zlib = require("zlib")
