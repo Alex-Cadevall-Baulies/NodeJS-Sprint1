@@ -100,9 +100,10 @@ const bookClubBooking = isBookClubAvailable => { return new Promise((resolve, re
 }
 
 async function isBookClubFree(isBookClubAvailable) {
-    const reservation = await bookClubBooking(isBookClubAvailable)
-    .then(newReservation => console.log(`comanda rebuda ${newReservation}`))
-    .catch (error => console.log(error))
+    const reservation = bookClubBooking(isBookClubAvailable)
+    .then(newReservation => {return newReservation})
+    .catch (error => {return error})
+    console.log(reservation)
 }
 
 isBookClubFree(isBookClubAvailable) 
