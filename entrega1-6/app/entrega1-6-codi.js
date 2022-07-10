@@ -1,15 +1,16 @@
+const validatedArray = require('.\__tests__\entrega1-6test.js')
 
-const sum = function sum(numberArray) 
-{const sum = numberArray.reduce((previousValue, currentValue) => previousValue + currentValue)
+const sum = function sum(validatedArray) 
+{const sum = validatedArray.reduce((previousValue, currentValue) => previousValue + currentValue)
 return console.log(sum)}
 
-const substract = function substract(numberArray) {const substract = numberArray.reduce((previousValue, currentValue) => previousValue - currentValue)
+const substract = function substract(validatedArray) {const substract = validatedArray.reduce((previousValue, currentValue) => previousValue - currentValue)
     return console.log(substract)}
 
-const multiply = function multiply(numberArray) {const multiply = numberArray.reduce((previousValue, currentValue) => previousValue * currentValue)
+const multiply = function multiply(validatedArray) {const multiply = validatedArray.reduce((previousValue, currentValue) => previousValue * currentValue)
     return console.log(multiply)}
 
-const divide = function divide(numberArray) {const divide = numberArray.reduce((previousValue, currentValue) => previousValue / currentValue)
+const divide = function divide(validatedArray) {const divide = validatedArray.reduce((previousValue, currentValue) => previousValue / currentValue)
     return console.log(divide)}
 
 
