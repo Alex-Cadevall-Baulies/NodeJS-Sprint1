@@ -39,22 +39,14 @@ theWorstMessage(`Espero no fer-me pesat`)
 
 // nivell 2 - Exercici 2
 
-/*
+const homeDirectoryFiles = () => {
 const os = require('os')
 const userHomeDirectory = os.homedir()
 
+const fs = require('fs')
 fs.readdir(userHomeDirectory, (err, files) => {
     files.forEach(file => {
       console.log(file);
     });
-  });
-
-
-const { spawn } = require('child_process')
-
-const child = spawn (dir, 'userHomeDirectory', (file) => console.log(file))
-
-
-1. determinar sistema
-2. determinar comand per revisar carpeta
-3. determinar carpeta a revisar */
+  });}
+  homeDirectoryFiles ()
