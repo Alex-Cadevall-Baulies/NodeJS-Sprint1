@@ -9,11 +9,13 @@ documentWiriting('We did it, they called us fools but we did it!!')
 
 //nivell 1 - exercici 2
 const readFile = document => {
+const fs = require('fs')
 const docToRead = document
 fs.readFile(docToRead, (error, text) => {if (error) {console.log(error)} console.log(text.toString())})
 }
 
 readFile('entrega1-5.txt')
+
 
 //nivell 1 - exercici 3
 const zlib = require("zlib")
@@ -39,7 +41,7 @@ fs.readdir(userHomeDirectory, (err, files) => {
   });
 
 
-  /*const { spawn } = require('child_process')
+/*const { spawn } = require('child_process')
 
 const child = spawn (dir, 'userHomeDirectory', (file) => console.log(file))
 
