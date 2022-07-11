@@ -1,3 +1,4 @@
-const validatedArray = require('../app/entrega1-6-codi')
+const operation = require('../app/entrega1-6-codi')
 
-describe("Sum tests")
+test("letter sum", () => {expect(operation.sum([1, "a"])).toBe("1a")})
+
