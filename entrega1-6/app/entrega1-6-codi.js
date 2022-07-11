@@ -1,14 +1,14 @@
-const sum = function sum(validatedArray) 
+function sum(validatedArray) 
 {const sum = validatedArray.reduce((previousValue, currentValue) => previousValue + currentValue)
-return console.log(sum)}
+return sum}
 
-const substract = function substract(validatedArray) {const substract = validatedArray.reduce((previousValue, currentValue) => previousValue - currentValue)
-    return console.log(substract)}
+function substract(validatedArray) {const substract = validatedArray.reduce((previousValue, currentValue) => previousValue - currentValue)
+    return substract}
 
-const multiply = function multiply(validatedArray) {const multiply = validatedArray.reduce((previousValue, currentValue) => previousValue * currentValue)
-    return console.log(multiply)}
+function multiply(validatedArray) {const multiply = validatedArray.reduce((previousValue, currentValue) => previousValue * currentValue)
+    return multiply}
 
-const divide = function divide(validatedArray) {const divide = validatedArray.reduce((previousValue, currentValue) => previousValue / currentValue)
-    return console.log(divide)}
+function divide(validatedArray) {const divide = validatedArray.reduce((previousValue, currentValue) => previousValue / currentValue)
+    return divide}
 
 module.exports = {sum, substract, multiply, divide}
