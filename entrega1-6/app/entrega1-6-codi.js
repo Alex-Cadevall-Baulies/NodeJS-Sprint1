@@ -1,4 +1,4 @@
-const validatedArray = require('.\__tests__\entrega1-6test.js')
+const validatedArray = require('../__tests__/entrega1-6test')
 
 const sum = function sum(validatedArray) 
 {const sum = validatedArray.reduce((previousValue, currentValue) => previousValue + currentValue)

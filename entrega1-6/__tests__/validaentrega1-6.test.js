@@ -1,4 +1,4 @@
-const validatedArray = require('.\entrega1-6test.js')
+const validatedArray = require('./entrega1-6test')
 
 console.log(validatedArray([1,"e",3]))
 console.log(validatedArray([1, null ,3]))
