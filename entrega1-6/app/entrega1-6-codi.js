@@ -11,7 +11,4 @@ const multiply = function multiply(validatedArray) {const multiply = validatedAr
 const divide = function divide(validatedArray) {const divide = validatedArray.reduce((previousValue, currentValue) => previousValue / currentValue)
     return console.log(divide)}
 
-module.exports = sum
-module.exports = substract
-module.exports = multiply
-module.exports = divide
+module.exports = {sum, substract, multiply, divide}
