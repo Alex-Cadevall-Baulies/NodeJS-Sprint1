@@ -1,5 +1,3 @@
-const { isNumber } = require("util")
-
 function validateArray (numberArray) {
     let noLetters = false
     const alphabet = "abcdefghijklmnopqrstuvwxyzç"
