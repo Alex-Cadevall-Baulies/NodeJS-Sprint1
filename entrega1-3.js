@@ -1,8 +1,9 @@
-//nivell 1 - exercici 1
+//nivell 1 - exercici 
+//truthy falsey expersions
 
 const isWaterType = 'Squirtel'
 const waterStarter = new Promise ((resolve, reject) => {
-    if(isWaterType === !'Squirtel' || !'Totodile' || !'Mudkip') {
+    if(isWaterType != 'Squirtel' || isWaterType != 'Totodile' || isWaterType != 'Mudkip') {
         let message = `${isWaterType} no es tipus aigua!`
         resolve(message);
     } 
