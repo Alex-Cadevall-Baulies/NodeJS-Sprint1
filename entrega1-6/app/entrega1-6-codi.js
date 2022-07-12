@@ -32,6 +32,12 @@ function validateArray(array) {
     for (const letter of alphabet) {
         if (array.includes(letter)) { throw new Error(`El array conté lletres`) }
     }
+
+    const specialChar = "~!@#$%^&*_-+=`|(){}[]:;\"'<>,.?/"
+    for (const character of specialChar) {
+        if (array.includes(character)) { throw new Error(`El array conté caràcters especials`) }
+    }
+
     let arrayLength = array.length
     if (arrayLength < 2) { throw new Error(`El array conté menys de dos nombres`) }
 

@@ -3,7 +3,7 @@ const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
 describe("sum tests", () => {
     test("validate if sum works with numbers", () => { expect(sum([1, 1])).toBe(2) });
     test("validate if sum rejects letters", () => { expect(() => sum([1, "a"])).toThrow(`El array conté lletres`) })
-    test("validate if sum rejects special characters", () => { expect(sum([1, "/"])).toBe("1/") })
+    test("validate if sum rejects special characters", () => { expect(() => sum([1, "/"])).toThrow(`El array conté caràcters especials`) })
     test("validate if sum rejects array < 2", () => { expect(() => sum([1])).toThrow(`El array conté menys de dos nombres`) })
     test("validate if sum rejects null", () => { expect(() => sum([1, null])).toThrow(`El array conté un element Null`) })
     test("validate if sum rejects undefined", () => { expect(() => sum([1, undefined])).toThrow(`El array conté un element undefined`) })
@@ -12,7 +12,7 @@ describe("sum tests", () => {
 describe("substract tests", () => {
     test("validate if substract works with numbers", () => { expect(substract([1, 1])).toBe(0) });
     test("validate if substract rejects letters", () => { expect(() => substract([1, "a"])).toThrow(`El array conté lletres`) })
-    test("validate if substract rejects special characters", () => { expect(substract([1, "/"])).toBe(NaN) })
+    test("validate if substract rejects special characters", () => { expect(() => substract([1, "/"])).toThrow(`El array conté caràcters especials`) })
     test("validate if substract rejects array < 2", () => { expect(() => substract([1])).toThrow(`El array conté menys de dos nombres`) })
     test("validate if substract rejects null", () => { expect(() => substract([1, null])).toThrow(`El array conté un element Null`) })
     test("validate if substract rejects undefined", () => { expect(() => substract([1, undefined])).toThrow(`El array conté un element undefined`) })
@@ -21,7 +21,7 @@ describe("substract tests", () => {
 describe("divide tests", () => {
     test("validate if divide works with numbers", () => { expect(divide([1, 1])).toBe(1) });
     test("validate if divide rejects letters", () => { expect(() => divide([1, "a"])).toThrow(`El array conté lletres`) })
-    test("validate if divide rejects special characters", () => { expect(divide([1, "/"])).toBe(NaN) })
+    test("validate if divide rejects special characters", () => { expect(() => divide([1, "/"])).toThrow(`El array conté caràcters especials`) })
     test("validate if divide rejects array < 2", () => { expect(() => divide([1])).toThrow(`El array conté menys de dos nombres`) })
     test("validate if divide rejects null", () => { expect(() => divide([1, null])).toThrow(`El array conté un element Null`) })
     test("validate if divide rejects undefined", () => { expect(() => divide([1, undefined])).toThrow(`El array conté un element undefined`) })
@@ -30,7 +30,7 @@ describe("divide tests", () => {
 describe("multiply tests", () => {
     test("validate if multiply works with numbers", () => { expect(multiply([1, 1])).toBe(1) });
     test("validate if multiply rejects letters", () => { expect(() => multiply([1, "a"])).toThrow(`El array conté lletres`) })
-    test("validate if multiply rejects special characters", () => { expect(multiply([1, "/"])).toBe(NaN) })
+    test("validate if multiply rejects special characters", () => { expect(() => multiply([1, "/"])).toThrow(`El array conté caràcters especials`) })
     test("validate if multiply rejects array < 2", () => { expect(() => multiply([1])).toThrow(`El array conté menys de dos nombres`) })
     test("validate if multiply rejects null", () => { expect(() => multiply([1, null])).toThrow(`El array conté un element Null`) })
     test("validate if multiply rejects undefined", () => { expect(() => multiply([1, undefined])).toThrow(`El array conté un element undefined`) })
