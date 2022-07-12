@@ -1,5 +1,3 @@
-module.exports = {getEmployee, getSalary, namePlusSalary, bookClubBooking, isBookClubFree}
-
 let employees = [{
     id: 1,
     name: 'Linux Torvalds'
@@ -96,8 +94,10 @@ namePlusSalary(chosenID)
 
 const isBookClubAvailable = true
 
-const bookClubBooking = isBookClubAvailable => { return new Promise((resolve, reject) => {
-    if (isBookClubAvailable) {
+const bookClubBooking = (isBookClubAvailable) => { return new Promise((resolve, reject) => {
+    if (isBookClubAvailable != true && isBookClubAvailable != false) {throw new Error(`Estat actual del club de llibres es pendent, quan es resolgui la petició anterior t'ho farem saber.`)}
+    
+    else if (isBookClubAvailable) {
         const newReservation = {
             name: 'Bilbo MC Swaggings',
             genre: 'fashion and design',
@@ -106,6 +106,7 @@ const bookClubBooking = isBookClubAvailable => { return new Promise((resolve, re
         setTimeout(() => {
             resolve(newReservation)
         }, 2000)
+
     } else {
         let error = `El club està reservat en aquests moments. Prova un altre horari.`
         reject(error)
@@ -145,3 +146,6 @@ console.log(totalSum)
 }
 
 threeTimesDouble(number1, number2, number3)
+
+//exports
+module.exports = {getEmployee, getSalary, namePlusSalary, bookClubBooking, isBookClubFree}
