@@ -1,5 +1,5 @@
 const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
-const {getEmployee, getSalary, namePlusSalary, bookClubBooking, isBookClubFree} = require('../../entrega1-4')
+const {namePlusSalary, isBookClubFree} = require('../../entrega1-4')
 
 //test entrega 1-6 (operacions)
 describe("sum tests", () => {
@@ -60,8 +60,5 @@ describe("multiply tests", () => {
  - que pasa si li envio algo que no sigui true o false (tru is not defined)
  */
 
- describe("test nivell 1- exercici 1", () => {
-    test("check if getEmployee functions properly with correct ID", () => {expect(getEmployee(2).toBe([id: 2,
-        name: 'Bill Gates']))})
- })
+
 
