@@ -1,3 +1,4 @@
+module.exports = {getEmployee, getSalary, namePlusSalary, bookClubBooking, isBookClubFree}
 
 let employees = [{
     id: 1,
