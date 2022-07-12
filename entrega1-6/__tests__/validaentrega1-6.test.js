@@ -39,3 +39,25 @@ describe("multiply tests", () => {
 })
 
 //test entrega 1-4 (Async / Await)
+
+/* coses a testejar:
+- get employee:
+    - Que agafi bé el ID
+    - Que pasa si busco quelcom que no es un nombre (ID)
+    - Que pasa si li envio algo amb el nom employee
+
+- get salary:
+    - Que agafi bé el ID
+    - Que pasa si busco quelcom que no es un nombre (ID)
+    - Que pasa si li envio algo amb el nom salary
+
+- namePlusSalary:
+    - Que agafi bé el ID
+    - Que pasa si busco quelcom que no es un nombre (ID)
+
+-  bookClubBooking 
+ -  que pasa si li envio false 
+ - que pasa si li envio algo que no sigui true o false (tru is not defined)
+ */
+
+
