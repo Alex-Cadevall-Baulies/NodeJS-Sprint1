@@ -21,7 +21,7 @@ let salaries = [{
 }];
 
 //nivell 1 - exercici 1
-const chosenID = 4
+const chosenID = 2
 
 const getEmployee = chosenID => {
 return new Promise ((resolve, reject) => {
@@ -148,4 +148,4 @@ console.log(totalSum)
 threeTimesDouble(number1, number2, number3)
 
 //exports
-module.exports = {getEmployee, getSalary, namePlusSalary, bookClubBooking, isBookClubFree}
+module.exports = {namePlusSalary, isBookClubFree}
