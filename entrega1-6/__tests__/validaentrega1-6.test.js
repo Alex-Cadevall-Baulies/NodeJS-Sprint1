@@ -60,4 +60,8 @@ describe("multiply tests", () => {
  - que pasa si li envio algo que no sigui true o false (tru is not defined)
  */
 
+ describe("test nivell 1- exercici 1", () => {
+    test("check if getEmployee functions properly with correct ID", () => {expect(getEmployee(2).toBe([id: 2,
+        name: 'Bill Gates']))})
+ })
 

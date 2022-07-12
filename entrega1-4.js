@@ -21,7 +21,7 @@ let salaries = [{
 }];
 
 //nivell 1 - exercici 1
-const chosenID = 2
+const chosenID = 4
 
 const getEmployee = chosenID => {
 return new Promise ((resolve, reject) => {
