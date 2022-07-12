@@ -3,10 +3,12 @@
 ## Instalació previa:
 1. Obrir nova terminal.
 2. Escriure "npm i -D jest" en terminal per instalar jest.
-3. Entrar a la carpeta de test usant terminal: "cd .\entrega1-6\__tests__"
+
 
 ## Testejar:
-- Per testejar el codi escriu "npx jest".
+- Per testejar entrega 1-6:
+    - Entrar a la carpeta de test usant terminal: "cd .\entrega1-6\__tests__"
+- Per testejar el codi escriu "npx jest" a la terminal.
 
 ## Detalls del exercici:
 #### Nivell 1

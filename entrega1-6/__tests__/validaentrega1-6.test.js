@@ -1,5 +1,6 @@
 const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
 
+//test entrega 1-6 (operacions)
 describe("sum tests", () => {
     test("validate if sum works with numbers", () => { expect(sum([1, 1])).toBe(2) });
     test("validate if sum rejects letters", () => { expect(() => sum([1, "a"])).toThrow(`El array conté lletres`) })
@@ -36,3 +37,4 @@ describe("multiply tests", () => {
     test("validate if multiply rejects undefined", () => { expect(() => multiply([1, undefined])).toThrow(`El array conté un element undefined`) })
 })
 
+//test entrega 1-4 (Async / Await)
