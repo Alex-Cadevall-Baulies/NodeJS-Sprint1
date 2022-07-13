@@ -61,4 +61,6 @@ describe("multiply tests", () => {
  */
 
 
-
+describe("name & salary test", () => {
+test("validate if correct ID resolve works properly", async () => {await expect(namePlusSalary(2)).resolves.toBe(`El ID 2 correspon a Bill Gates amb salari 1000`)})
+})
