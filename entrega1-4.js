@@ -115,10 +115,14 @@ const bookClubBooking = (isBookClubAvailable) => {
 }
 
 async function isBookClubFree(isBookClubAvailable) {
-    const reservation = await bookClubBooking(isBookClubAvailable)
-        .then(newReservation => { return newReservation })
-        .catch(error => { return error })
-    console.log(reservation)
+
+    try {
+        const reservation = await bookClubBooking(isBookClubAvailable)
+        return reservation
+
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 isBookClubFree(isBookClubAvailable)
