@@ -29,14 +29,13 @@ let salaries = [{
 }];
 
 //nivell 1 - exercici 1
-let chosenID = 4
+let chosenID = 3
 
 const getEmployee = chosenID => {
     return new Promise((resolve, reject) => {
-        const isIdTrue = employees.find(employees => employees.id === chosenID)
+        const idName = employees.find(employees => employees.id === chosenID)
 
-        if (isIdTrue !== undefined) {
-            const idName = employees.find(employees => employees.id === chosenID)
+        if (idName !== undefined) {
             resolve(idName)
         }
 
