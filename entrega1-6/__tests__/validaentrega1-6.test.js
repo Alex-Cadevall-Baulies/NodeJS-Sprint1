@@ -91,5 +91,4 @@ describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
         expect(getSalary({ id: 4, name: 'Lolita Worster' })).toBeInstanceOf(Promise);
         return expect(getSalary({ id: 4, name: 'Lolita Worster' })).rejects.toStrictEqual(`El empleat Lolita Worster no disposa de salari.`);
     });
-
 })
