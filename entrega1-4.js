@@ -8,7 +8,8 @@ let employees = [{
     id: 3,
     name: 'Jeff Bezos'
 },
-{id: 4,
+{
+    id: 4,
     name: 'Lolita Worster'
 }];
 
@@ -22,7 +23,8 @@ let salaries = [{
     id: 3,
     salary: 2000
 },
-{id: 5,
+{
+    id: 5,
     name: 5000
 }];
 
@@ -48,7 +50,7 @@ const getEmployee = chosenID => {
 
 const getSalary = employee => {
     return new Promise((resolve, reject) => {
-        
+
         const idSalaries = salaries.find(salaries => salaries.id === employee.id)
 
         if (idSalaries !== undefined) {
@@ -63,7 +65,7 @@ const getSalary = employee => {
 }
 
 async function namePlusSalary(chosenID) {
-    
+
     try {
         const employee = await getEmployee(chosenID)
         const salary = await getSalary(employee)
