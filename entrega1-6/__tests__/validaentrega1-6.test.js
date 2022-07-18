@@ -1,5 +1,5 @@
 const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
-const {namePlusSalary, isBookClubFree} = require('../../entrega1-4')
+const {getSalary, getEmployee, namePlusSalary, isBookClubFree} = require('../../entrega1-4')
 
 //test entrega 1-6 (operacions)
 describe("sum tests", () => {
@@ -60,7 +60,27 @@ describe("multiply tests", () => {
  - que pasa si li envio algo que no sigui true o false (tru is not defined)
  */
 
+jest.setTimeout(10000)
+
 
 describe("name & salary test", () => {
-test("validate if correct ID resolve works properly", async () => {await expect(namePlusSalary(2)).resolves.toBe(`El ID 2 correspon a Bill Gates amb salari 1000`)})
+test("validate if correct ID resolve works properly", async () => {expect(namePlusSalary(2)).toBeInstanceOf(Promise)
+    return expect(await namePlusSalary(2).resolves.toEqual(`El ID 2 correspon a Bill Gates amb salari 1000`))})
+}) 
+
+describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
+    test(`Comprova que la asíncrona (namePlusSalary) crida a les promises`, async () => {
+        delayedResolveMock = jest.fn();
+        await namePlusSalary(delayedResolveMock);
+        expect(delayedResolveMock.mock.calls.length).toBe(1);
+    })
+    test(`Comprova que getEmployee torna una Promise, i que la promise es resol amb el valor esperat`, () => {
+        expect(getEmployee(2)).toBeInstanceOf(Promise);
+        return expect(getEmployee(2)).resolves.toStrictEqual({id: 2, name: 'Bill Gates'});
+    });
+    test(`Comprova que getEmployee torna una Promise, i que la promise es resol amb el valor esperat`, () => {
+        expect(getSalary(2)).toBeInstanceOf(Promise);
+        return expect(getSalary(2)).resolves.toStrictEqual({id: 2, salary: 1000});
+    });
+
 })
