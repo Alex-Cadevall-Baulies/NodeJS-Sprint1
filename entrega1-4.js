@@ -7,6 +7,9 @@ let employees = [{
 }, {
     id: 3,
     name: 'Jeff Bezos'
+},
+{id: 4,
+    name: 'Lolita Worster'
 }];
 
 let salaries = [{
@@ -18,10 +21,13 @@ let salaries = [{
 }, {
     id: 3,
     salary: 2000
+},
+{id: 5,
+    name: 5000
 }];
 
 //nivell 1 - exercici 1
-const chosenID = 2
+let chosenID = 2
 
 const getEmployee = chosenID => {
     return new Promise((resolve, reject) => {
