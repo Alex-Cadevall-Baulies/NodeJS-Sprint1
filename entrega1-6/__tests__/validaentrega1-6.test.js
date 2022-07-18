@@ -1,5 +1,5 @@
 const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
-const {getSalary, getEmployee, namePlusSalary, isBookClubFree} = require('../../entrega1-4')
+const { getSalary, getEmployee, namePlusSalary, isBookClubFree } = require('../../entrega1-4')
 
 //test entrega 1-6 (operacions)
 describe("sum tests", () => {
@@ -62,24 +62,29 @@ describe("multiply tests", () => {
 
 jest.setTimeout(10000)
 
-
-describe("name & salary test", () => {
-test("validate if correct ID resolve works properly", async () => {expect(await namePlusSalary(2).toBe(`El ID 2 correspon a Bill Gates amb salari 1000`))})
-}) 
-
 describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
-    test(`Comprova que la asíncrona (namePlusSalary) crida a les promises`, async () => {
-        delayedResolveMock = jest.fn();
-        await namePlusSalary(delayedResolveMock);
-        expect(delayedResolveMock.mock.calls.length).toBe(1);
-    })
+    test("validate if correct ID resolve works properly", async () => {
+        return expect(await namePlusSalary(2)).toEqual(`El ID 2 correspon a Bill Gates amb salari 1000`)
+    });
+
     test(`Comprova que getEmployee torna una Promise, i que la promise es resol amb el valor esperat`, () => {
         expect(getEmployee(2)).toBeInstanceOf(Promise);
-        return expect(getEmployee(2)).resolves.toStrictEqual({id: 2, name: 'Bill Gates'});
+        return expect(getEmployee(2)).resolves.toStrictEqual({ id: 2, name: 'Bill Gates' });
     });
+
     test(`Comprova que getSalary torna una Promise, i que la promise es resol amb el valor esperat`, () => {
-        expect(getSalary({id: 2, name: 'Bill Gates'})).toBeInstanceOf(Promise);
-        return expect(getSalary({id: 2, name: 'Bill Gates'})).resolves.toStrictEqual({id: 2, salary: 1000});
+        expect(getSalary({ id: 2, name: 'Bill Gates' })).toBeInstanceOf(Promise);
+        return expect(getSalary({ id: 2, name: 'Bill Gates' })).resolves.toStrictEqual({ id: 2, salary: 1000 });
+    });
+
+    test(`Comprova que getEmployee torna una Promise, i que la promise retorna el error esperat`, () => {
+        expect(getEmployee(5)).toBeInstanceOf(Promise);
+        return expect(getEmployee(5)).rejects.toStrictEqual(`No hem trobat cap empleat amb el ID 5 a la nostra base de dades.`);
+    });
+
+    test(`Comprova que getSalary torna una Promise, i que la promise retorna el error esperat`, () => {
+        expect(getSalary({ id: 4, name: 'Lolita Worster' })).toBeInstanceOf(Promise);
+        return expect(getSalary({ id: 4, name: 'Lolita Worster' })).rejects.toStrictEqual(`El empleat Lolita Worster no disposa de salari.`);
     });
 
 })

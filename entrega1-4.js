@@ -29,7 +29,7 @@ let salaries = [{
 }];
 
 //nivell 1 - exercici 1
-let chosenID = 2
+let chosenID = 4
 
 const getEmployee = chosenID => {
     return new Promise((resolve, reject) => {
@@ -69,7 +69,7 @@ async function namePlusSalary(chosenID) {
     try {
         const employee = await getEmployee(chosenID)
         const salary = await getSalary(employee)
-        return console.log(`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`)
+        return `El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
 
     } catch (error) {
         console.log(error);
