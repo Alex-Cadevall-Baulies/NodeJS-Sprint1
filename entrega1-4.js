@@ -148,7 +148,7 @@ async function threeTimesDouble(number1, number2, number3) {
     const doubleOfSecond = await doubleNumber(number2)
     const doubleOfThird = await doubleNumber(number3)
     const totalSum = doubleOfFirst + doubleOfSecond + doubleOfThird
-    console.log(totalSum)
+    return totalSum
 }
 
 threeTimesDouble(number1, number2, number3)
