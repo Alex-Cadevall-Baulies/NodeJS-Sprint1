@@ -64,8 +64,7 @@ jest.setTimeout(10000)
 
 
 describe("name & salary test", () => {
-test("validate if correct ID resolve works properly", async () => {expect(namePlusSalary(2)).toBeInstanceOf(Promise)
-    return expect(await namePlusSalary(2).resolves.toEqual(`El ID 2 correspon a Bill Gates amb salari 1000`))})
+test("validate if correct ID resolve works properly", async () => {expect(await namePlusSalary(2).toBe(`El ID 2 correspon a Bill Gates amb salari 1000`))})
 }) 
 
 describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
@@ -78,9 +77,9 @@ describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
         expect(getEmployee(2)).toBeInstanceOf(Promise);
         return expect(getEmployee(2)).resolves.toStrictEqual({id: 2, name: 'Bill Gates'});
     });
-    test(`Comprova que getEmployee torna una Promise, i que la promise es resol amb el valor esperat`, () => {
-        expect(getSalary(2)).toBeInstanceOf(Promise);
-        return expect(getSalary(2)).resolves.toStrictEqual({id: 2, salary: 1000});
+    test(`Comprova que getSalary torna una Promise, i que la promise es resol amb el valor esperat`, () => {
+        expect(getSalary({id: 2, name: 'Bill Gates'})).toBeInstanceOf(Promise);
+        return expect(getSalary({id: 2, name: 'Bill Gates'})).resolves.toStrictEqual({id: 2, salary: 1000});
     });
 
 })
