@@ -4,11 +4,11 @@ let employees = [{
 }, {
     id: 2,
     name: 'Bill Gates'
-},{
+}, {
     id: 3,
     name: 'Jeff Bezos'
 }];
- 
+
 let salaries = [{
     id: 1,
     salary: 4000
@@ -24,66 +24,47 @@ let salaries = [{
 const chosenID = 2
 
 const getEmployee = chosenID => {
-return new Promise ((resolve, reject) => {
-    const isIdTrue =  employees.find(employees => employees.id === chosenID)
-    
-    if (isIdTrue !== undefined) {
-    const idName = employees.find(employees => employees.id === chosenID)
-    resolve(idName)
-    }
-    
-else {
-    let error = `No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`
-    reject(error)
-}
-})}
+    return new Promise((resolve, reject) => {
+        const isIdTrue = employees.find(employees => employees.id === chosenID)
 
-getEmployee(chosenID)
-.then(idName => console.log(`El ID ${chosenID} correspón a ${idName.name}`))
-.catch(idInformation => console.log(idInformation))
-
-
-const getSalary = chosenID => {
-    return new Promise ((resolve, reject) => {
-        const isIdTrue =  salaries.find(salaries => salaries.id === chosenID)
-        
         if (isIdTrue !== undefined) {
-        const idSalaries = salaries.find(salaries => salaries.id === chosenID)
-        resolve(idSalaries)
+            const idName = employees.find(employees => employees.id === chosenID)
+            resolve(idName)
         }
-        
-    else {
-        let error = `El ID ${chosenID} no disposa de salari.`
-        reject(error)
-    }
-})}
 
-getSalary(chosenID)
-.then(idSalaries => console.log(`El salari del ID ${chosenID} correspón a ${idSalaries.salary}`))
-.catch(idInformation => console.log(idInformation))
+        else {
+            let error = `No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`
+            reject(error)
+        }
+    })
+}
+
+
+const getSalary = employee => {
+    return new Promise((resolve, reject) => {
+        
+        const idSalaries = salaries.find(salaries => salaries.id === employee.id)
+
+        if (idSalaries !== undefined) {
+            resolve(idSalaries)
+        }
+
+        else {
+            let error = `El empleat ${employee.name} no disposa de salari.`
+            reject(error)
+        }
+    })
+}
 
 async function namePlusSalary(chosenID) {
-    const employee = await getEmployee(chosenID) 
-    .then(idName => {return idName.name})
-    .catch(idInformation => console.log(idInformation))
     
-    const salary = await getSalary(chosenID)
-    .then(idSalaries => {return idSalaries.salary})
-    .catch(idInformation => console.log(idInformation))
+    try {
+        const employee = await getEmployee(chosenID)
+        const salary = await getSalary(employee)
+        return console.log(`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`)
 
-    if(employee !== undefined && salary !== undefined){
-    return  `El ID ${chosenID} correspon a ${employee} amb salari ${salary}`
-    }
-    else if (employee === undefined && salary !== undefined){
-        throw new Error (`${employee} El salari asignat a aquest ID es ${salary}`)
-    }
-
-    else if (employee !== undefined && salary === undefined){
-        throw new Error (`${salary} El nom assignat a aquest ID es ${employee}`)
-    }
-
-    else {
-    throw new Error (`El ID ${chosenID} no es troba a la nostra base de dades.`)
+    } catch (error) {
+        console.log(error);
     }
 
 }
@@ -95,34 +76,35 @@ namePlusSalary(chosenID)
 
 const isBookClubAvailable = true
 
-const bookClubBooking = (isBookClubAvailable) => { return new Promise((resolve, reject) => {
-    if (isBookClubAvailable != true && isBookClubAvailable != false) {throw new Error(`Estat actual del club de llibres es pendent, quan es resolgui la petició anterior t'ho farem saber.`)}
-    
-    else if (isBookClubAvailable) {
-        const newReservation = {
-            name: 'Bilbo MC Swaggings',
-            genre: 'fashion and design',
-            location: 'right wing'
-        }
-        setTimeout(() => {
-            resolve(newReservation)
-        }, 2000)
+const bookClubBooking = (isBookClubAvailable) => {
+    return new Promise((resolve, reject) => {
+        if (isBookClubAvailable != true && isBookClubAvailable != false) { throw new Error(`Estat actual del club de llibres es pendent, quan es resolgui la petició anterior t'ho farem saber.`) }
 
-    } else {
-        let error = `El club està reservat en aquests moments. Prova un altre horari.`
-        reject(error)
-    }
-})
+        else if (isBookClubAvailable) {
+            const newReservation = {
+                name: 'Bilbo MC Swaggings',
+                genre: 'fashion and design',
+                location: 'right wing'
+            }
+            setTimeout(() => {
+                resolve(newReservation)
+            }, 2000)
+
+        } else {
+            let error = `El club està reservat en aquests moments. Prova un altre horari.`
+            reject(error)
+        }
+    })
 }
 
 async function isBookClubFree(isBookClubAvailable) {
     const reservation = await bookClubBooking(isBookClubAvailable)
-    .then(newReservation => {return newReservation})
-    .catch (error => {return error})
+        .then(newReservation => { return newReservation })
+        .catch(error => { return error })
     console.log(reservation)
 }
 
-isBookClubFree(isBookClubAvailable) 
+isBookClubFree(isBookClubAvailable)
 
 
 //nivell 2 - exercici 2
@@ -131,11 +113,13 @@ const number1 = 2
 const number2 = 4
 const number3 = 6
 
-const doubleNumber = number1 => { return new Promise ((resolve) => {
-    const double = number1 * number1
-            setTimeout(() => {
-                resolve(double)
-            }, 2000)})
+const doubleNumber = number1 => {
+    return new Promise((resolve) => {
+        const double = number1 * number1
+        setTimeout(() => {
+            resolve(double)
+        }, 2000)
+    })
 }
 
 async function threeTimesDouble(number1, number2, number3) {
@@ -143,10 +127,10 @@ async function threeTimesDouble(number1, number2, number3) {
     const doubleOfSecond = await doubleNumber(number2)
     const doubleOfThird = await doubleNumber(number3)
     const totalSum = doubleOfFirst + doubleOfSecond + doubleOfThird
-console.log(totalSum)
+    console.log(totalSum)
 }
 
 threeTimesDouble(number1, number2, number3)
 
 //exports
-module.exports = {getSalary, getEmployee, namePlusSalary, isBookClubFree}
+module.exports = { getSalary, getEmployee, namePlusSalary, isBookClubFree }
