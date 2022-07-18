@@ -72,19 +72,20 @@ async function namePlusSalary(chosenID) {
     .catch(idInformation => console.log(idInformation))
 
     if(employee !== undefined && salary !== undefined){
-    console.log(`El ID ${chosenID} correspon a ${employee} amb salari ${salary}`)
+    return  `El ID ${chosenID} correspon a ${employee} amb salari ${salary}`
     }
     else if (employee === undefined && salary !== undefined){
-        console.log(`${employee} El salari asignat a aquest ID es ${salary}`)
+        throw new Error (`${employee} El salari asignat a aquest ID es ${salary}`)
     }
 
     else if (employee !== undefined && salary === undefined){
-        console.log(`${salary} El nom assignat a aquest ID es ${employee}`)
+        throw new Error (`${salary} El nom assignat a aquest ID es ${employee}`)
     }
 
     else {
-        console.log(`El ID ${chosenID} no es troba a la nostra base de dades.`)
+    throw new Error (`El ID ${chosenID} no es troba a la nostra base de dades.`)
     }
+
 }
 
 namePlusSalary(chosenID)
@@ -148,4 +149,4 @@ console.log(totalSum)
 threeTimesDouble(number1, number2, number3)
 
 //exports
-module.exports = {namePlusSalary, isBookClubFree}
+module.exports = {getSalary, getEmployee, namePlusSalary, isBookClubFree}
