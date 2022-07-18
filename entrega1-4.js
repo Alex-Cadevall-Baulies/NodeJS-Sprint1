@@ -25,7 +25,7 @@ let salaries = [{
 },
 {
     id: 5,
-    name: 5000
+    salary: 5000
 }];
 
 //nivell 1 - exercici 1
@@ -40,8 +40,18 @@ const getEmployee = chosenID => {
         }
 
         else {
-            let error = `No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`
+            const idSalary = salaries.find(salary => salary.id === chosenID)
+            let error
+
+            if (idSalary !== undefined) {
+                error = `El ID ${chosenID} no disposa de empleat pero sí d'un salari de ${idSalary.salary}`
+                reject(error)
+            }
+
+            else{
+            error = `No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`
             reject(error)
+            }
         }
     })
 }
@@ -68,7 +78,7 @@ async function namePlusSalary(chosenID) {
     try {
         const employee = await getEmployee(chosenID)
         const salary = await getSalary(employee)
-        return `El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
+        return console.log`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
 
     } catch (error) {
         console.log(error);
