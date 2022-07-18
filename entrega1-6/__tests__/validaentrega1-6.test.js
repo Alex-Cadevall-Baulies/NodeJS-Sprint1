@@ -1,5 +1,6 @@
 const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
-const { getSalary, getEmployee, namePlusSalary, bookClubBooking, isBookClubFree } = require('../../entrega1-4')
+const { getSalary, getEmployee, namePlusSalary} = require('../../entrega1-3')
+const {bookClubBooking, isBookClubFree } = require('../../entrega1-4')
 
 //test entrega 1-6 (operacions)
 describe("sum tests", () => {
@@ -38,31 +39,8 @@ describe("multiply tests", () => {
     test("validate if multiply rejects undefined", () => { expect(() => multiply([1, undefined])).toThrow(`El array conté un element undefined`) })
 })
 
-//test entrega 1-4 (Async / Await)
-
-/* coses a testejar:
-- get employee:
-    - Que agafi bé el ID
-    - Que pasa si busco quelcom que no es un nombre (ID)
-    - Que pasa si li envio algo amb el nom employee
-
-- get salary:
-    - Que agafi bé el ID
-    - Que pasa si busco quelcom que no es un nombre (ID)
-    - Que pasa si li envio algo amb el nom salary
-
-- namePlusSalary:
-    - Que agafi bé el ID
-    - Que pasa si busco quelcom que no es un nombre (ID)
-
--  bookClubBooking 
- -  que pasa si li envio false 
- - que pasa si li envio algo que no sigui true o false (tru is not defined)
- */
-
-jest.setTimeout(10000)
-
-describe(`Comprova exercici 1 nivell 2, entrega 1-4`, () => {
+//test entrega 1-4 nivell 1 exercici 2(Async / Await)
+describe(`Comprova exercici 2 nivell 1, entrega 1-4`, () => {
     test("comprova que isBookClubFree retorna la resposta correcta", async () => {
         return expect(await isBookClubFree(true)).toEqual({
             name: 'Bilbo MC Swaggings',
@@ -86,8 +64,9 @@ describe(`Comprova exercici 1 nivell 2, entrega 1-4`, () => {
     });
 })
 
-describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
-    test("Comprova que namePlusSalary retorna la resposta correcta", async () => {
+//test entrega 1-3 exercici 2 nivell 2
+describe(`Comprova exercici 2 nivell 2, entrega 1-3`, () => {
+    test("Comprova que namePlusSalary retorna la resposta correcta",async () =>{
         return expect(await namePlusSalary(2)).toEqual(`El ID 2 correspon a Bill Gates amb salari 1000`)
     });
 
@@ -116,6 +95,11 @@ describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
         return expect(getSalary({ id: 4, name: 'Lolita Worster' })).rejects.toStrictEqual(`El empleat Lolita Worster no disposa de salari.`);
     });
 })
+
+
+
+
+
 
 
 

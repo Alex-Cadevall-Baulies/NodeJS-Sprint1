@@ -56,7 +56,6 @@ const getEmployee = chosenID => {
     })
 }
 
-
 const getSalary = employee => {
     return new Promise((resolve, reject) => {
 
@@ -154,4 +153,4 @@ async function threeTimesDouble(number1, number2, number3) {
 threeTimesDouble(number1, number2, number3)
 
 //exports
-module.exports = { getSalary, getEmployee, namePlusSalary, bookClubBooking, isBookClubFree }
+module.exports = {bookClubBooking, isBookClubFree }
