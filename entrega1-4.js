@@ -78,7 +78,7 @@ async function namePlusSalary(chosenID) {
     try {
         const employee = await getEmployee(chosenID)
         const salary = await getSalary(employee)
-        return console.log`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
+        return `El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
 
     } catch (error) {
         console.log(error);

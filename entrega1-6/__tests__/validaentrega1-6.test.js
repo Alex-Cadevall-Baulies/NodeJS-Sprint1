@@ -78,8 +78,13 @@ describe(`Comprova exercici 1 nivell 1, entrega 1-4`, () => {
     });
 
     test(`Comprova que getEmployee torna una Promise, i que la promise retorna el error esperat`, () => {
+        expect(getEmployee(6)).toBeInstanceOf(Promise);
+        return expect(getEmployee(6)).rejects.toStrictEqual(`No hem trobat cap empleat amb el ID 6 a la nostra base de dades.`);
+    });
+
+    test(`Comprova que getEmployee torna una Promise, i que revisa si hi ha salary sense nom assignat`, () => {
         expect(getEmployee(5)).toBeInstanceOf(Promise);
-        return expect(getEmployee(5)).rejects.toStrictEqual(`No hem trobat cap empleat amb el ID 5 a la nostra base de dades.`);
+        return expect(getEmployee(5)).rejects.toStrictEqual(`El ID 5 no disposa de empleat pero sí d'un salari de 5000`);
     });
 
     test(`Comprova que getSalary torna una Promise, i que la promise retorna el error esperat`, () => {
