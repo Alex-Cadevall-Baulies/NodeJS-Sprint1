@@ -123,7 +123,7 @@ describe(`Comprova exercici 2 nivell 1, entrega 1-3`, () => {
         )
     });
 })
-/*
+
 //test entrega 1-4 nivell 1 exercici 2 (Async / Await)
 describe(`Comprova exercici 2 nivell 1, entrega 1-4`, () => {
     test("comprova que isBookClubFree retorna la resposta correcta", async () => {
@@ -197,4 +197,4 @@ describe(`Comprova exercici 2 nivell 2, entrega 1-3`, () => {
             name: 'Lolita Worster'
         })).rejects.toStrictEqual(`El empleat Lolita Worster no disposa de salari.`);
     });
-})*/
+})
