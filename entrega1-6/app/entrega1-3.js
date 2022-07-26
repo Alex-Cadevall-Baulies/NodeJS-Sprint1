@@ -20,33 +20,33 @@ waterStarter
 
 //nivell 1 - exercici 2
 
-let gotMedal = (victory, medal)  => {
+let gotMedal = (victory, medal, trainer)  => {
+
     if (victory) {
         let message = `Has aconseguit la medalla tipus ${medal}!`
-        console.log(message)
+        return(message)
     }
     else {
-        let error = `No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`
-        console.log(error)
-        
-}
+        let message = `No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`
+        return(message)
+    }
 }
 
-const medalInfo = (medal, trainer, callback) => {
+const medalInfo = (callback, medal, trainer, victory) => {
     const medalInfo = `${medal} de ${trainer}`
 
     try {
-        let message = gotMedal(medalInfo)
-        console.log(message)
+        let message = gotMedal(victory, medalInfo, trainer)
+        return(message)
     }
 
     catch {
-        let message = gotMedal(medalInfo)
-        console.log(message)
+        let message = gotMedal(victory, medalInfo, trainer)
+        return(message)
     }
 }
 
-medalInfo('foc', 'Blaine', gotMedal)
+medalInfo(gotMedal, 'foc', 'Blaine', false)
 
 
 //nivell 2

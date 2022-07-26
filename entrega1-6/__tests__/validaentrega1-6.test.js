@@ -105,17 +105,21 @@ describe("multiply tests", () => {
 describe(`Comprova exercici 2 nivell 1, entrega 1-3`, () => {
 
     test(`comprova que medalInfo retorna el missatge correcte si false`, () => {
-        expect(medalInfo(medal= 'foc', trainer ='Blaine', gotMedal)).toBe(`No has aconseguit la medalla tipus foc de Blaine. Blaine et diu que segueixis entrenant dur!`
+        expect(medalInfo(gotMedal, 'foc', 'Blaine', false)).toBe(`No has aconseguit la medalla tipus foc de Blaine. Blaine et diu que segueixis entrenant dur!`
         )
     });
 
+    test(`comprova que medalInfo retorna el missatge correcte si true`, () => {
+        expect(medalInfo(gotMedal, 'foc', 'Blaine', true)).toBe(`Has aconseguit la medalla tipus foc de Blaine!`)
+    });
+
     test(`comprova que gotMedal retorna el missatge correcte si false`, () => {
-        expect(gotMedal(false, 'planta de Erika')).toBe(`No has aconseguit la medalla tipus planta de Erika. Erika et diu que segueixis entrenant dur!`
+        expect(gotMedal(false, 'planta de Erika', `Erika`)).toBe(`No has aconseguit la medalla tipus planta de Erika. Erika et diu que segueixis entrenant dur!`
         )
     });
 
     test(`comprova que gotMedal retorna el missatge correcte si true`, () => {
-        expect(gotMedal(true, `planta de Erika`)).toBe(`Has aconseguit la medalla tipus planta de Erika!`
+        expect(gotMedal(true, `planta de Erika`, `Erika`)).toBe(`Has aconseguit la medalla tipus planta de Erika!`
         )
     });
 })
