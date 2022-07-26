@@ -94,9 +94,7 @@ const isBookClubAvailable = true
 
 const bookClubBooking = (isBookClubAvailable) => {
     return new Promise((resolve, reject) => {
-        if (isBookClubAvailable != true && isBookClubAvailable != false) { throw new Error(`Estat actual del club de llibres es pendent, quan es resolgui la petició anterior t'ho farem saber.`) }
-
-        else if (isBookClubAvailable) {
+        if (isBookClubAvailable === true) {
             const newReservation = {
                 name: 'Bilbo MC Swaggings',
                 genre: 'fashion and design',
