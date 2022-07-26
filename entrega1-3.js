@@ -1,4 +1,4 @@
-//nivell 1 - exercici 
+//nivell 1 - exercici 1
 //truthy falsey expersions
 
 const isWaterType = 'Totodile'
