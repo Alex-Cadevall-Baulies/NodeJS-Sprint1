@@ -1,4 +1,4 @@
-//nivell 1 - exercici 
+//nivell 1 - exercici 1
 //truthy falsey expersions
 
 const isWaterType = 'Totodile'
@@ -21,22 +21,31 @@ waterStarter
 //nivell 1 - exercici 2
 const victory = false
 
-let gotMedal = medal  => {
-    if (!victory) {console.log(`No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`)}
-    else {console.log(`Has aconseguit la medalla tipus ${medal}!`)
+let gotMedal = (victory, medal)  => {
+    if (victory) {
+        let message = `Has aconseguit la medalla tipus ${medal}!`
+        return(message)
+    }
+    else {
+        let error = `No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`
+        return(error)
+        
 }
 }
-    
-const trainer = 'Erika'
-const medal = 'planta'
-
 
 const medalInfo = (medal, trainer, callback) => {
     const medalInfo = `${medal} de ${trainer}`
-    callback (medalInfo);
-}
 
-medalInfo(medal, trainer , gotMedal)
+    try {
+        let message = gotMedal(medalInfo)
+        return(message)
+    }
+
+    catch {
+        let message = gotMedal(medalInfo)
+        return(message)
+    }
+}
 
 
 //nivell 2
@@ -135,4 +144,4 @@ namePlusSalary(chosenID)
 //nivell 3 - exercici1
     .catch(idInformation => console.log(idInformation))
 
-module.exports = {getSalary, getEmployee, namePlusSalary}
+module.exports = {medalInfo, gotMedal, getSalary, getEmployee, namePlusSalary}
