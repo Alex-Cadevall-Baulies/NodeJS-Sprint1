@@ -135,7 +135,7 @@ async function namePlusSalary(chosenID) {
         return `El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
 
     } catch (error) {
-        console.log(error);
+        return(error);
     }
 
 }

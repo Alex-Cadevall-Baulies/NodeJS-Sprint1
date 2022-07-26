@@ -124,31 +124,6 @@ describe(`Comprova exercici 2 nivell 1, entrega 1-3`, () => {
     });
 })
 
-//test entrega 1-4 nivell 1 exercici 2 (Async / Await)
-describe(`Comprova exercici 2 nivell 1, entrega 1-4`, () => {
-    test("comprova que isBookClubFree retorna la resposta correcta", async () => {
-        return expect(await isBookClubFree(true)).toEqual({
-            name: 'Bilbo MC Swaggings',
-            genre: 'fashion and design',
-            location: 'right wing'
-        })
-    });
-
-    test(`Comprova que bookClubBooking torna una Promise, i que la promise es resol amb el valor esperat`, () => {
-        expect(bookClubBooking(true)).toBeInstanceOf(Promise);
-        return expect(bookClubBooking(true)).resolves.toStrictEqual({
-            name: 'Bilbo MC Swaggings',
-            genre: 'fashion and design',
-            location: 'right wing'
-        });
-    });
-
-    test(`Comprova que bookClubBooking torna una Promise, i que la promise es rejected amb el valor esperat`, () => {
-        expect(bookClubBooking(false)).toBeInstanceOf(Promise);
-        return expect(bookClubBooking(false)).rejects.toStrictEqual(`El club està reservat en aquests moments. Prova un altre horari.`);
-    });
-})
-
 //test entrega 1-3 exercici 2 nivell 2
 describe(`Comprova exercici 2 nivell 2, entrega 1-3`, () => {
     test("Comprova que namePlusSalary retorna la resposta correcta", async () => {
@@ -178,23 +153,43 @@ describe(`Comprova exercici 2 nivell 2, entrega 1-3`, () => {
     });
 
     test(`Comprova que getEmployee torna una Promise, i que la promise retorna el error esperat`, () => {
-        expect(getEmployee(6)).toBeInstanceOf(Promise);
-        return expect(getEmployee(6)).rejects.toStrictEqual(`No hem trobat cap empleat amb el ID 6 a la nostra base de dades.`);
+        return expect(getEmployee(6)).rejects.toEqual(`No hem trobat cap empleat amb el ID 6 a la nostra base de dades.`);
     });
 
     test(`Comprova que getEmployee torna una Promise, i que revisa si hi ha salary sense nom assignat`, () => {
-        expect(getEmployee(5)).toBeInstanceOf(Promise);
-        return expect(getEmployee(5)).rejects.toStrictEqual(`El ID 5 no disposa de empleat pero sí d'un salari de 5000`);
+        return expect(getEmployee(5)).rejects.toEqual(`El ID 5 no disposa de empleat pero sí d'un salari de 5000`);
     });
 
     test(`Comprova que getSalary torna una Promise, i que la promise retorna el error esperat`, () => {
-        expect(getSalary({
-            id: 4,
-            name: 'Lolita Worster'
-        })).toBeInstanceOf(Promise);
         return expect(getSalary({
             id: 4,
             name: 'Lolita Worster'
-        })).rejects.toStrictEqual(`El empleat Lolita Worster no disposa de salari.`);
-    });
+        })).rejects.toEqual(`El empleat Lolita Worster no disposa de salari.`);
+});
 })
+
+//test entrega 1-4 nivell 1 exercici 2 (Async / Await)
+describe(`Comprova exercici 2 nivell 1, entrega 1-4`, () => {
+    test("comprova que isBookClubFree retorna la resposta correcta", async () => {
+        return expect(await isBookClubFree(true)).toEqual({
+            name: 'Bilbo MC Swaggings',
+            genre: 'fashion and design',
+            location: 'right wing'
+        })
+    });
+
+    test(`Comprova que bookClubBooking torna una Promise, i que la promise es resol amb el valor esperat`, () => {
+        expect(bookClubBooking(true)).toBeInstanceOf(Promise);
+        return expect(bookClubBooking(true)).resolves.toStrictEqual({
+            name: 'Bilbo MC Swaggings',
+            genre: 'fashion and design',
+            location: 'right wing'
+        });
+    });
+
+    test(`Comprova que bookClubBooking torna una Promise, i que la promise es rejected amb el valor esperat`, () => {
+        return expect(bookClubBooking(false)).rejects.toEqual(`El club està reservat en aquests moments. Prova un altre horari.`);
+    });
+
+})
+

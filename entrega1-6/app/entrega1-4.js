@@ -118,7 +118,7 @@ async function isBookClubFree(isBookClubAvailable) {
         return reservation
 
     } catch (error) {
-        console.log(error);
+        return(error);
     }
 }
 
