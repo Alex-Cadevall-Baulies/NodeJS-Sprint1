@@ -2,7 +2,7 @@
 //truthy falsey expersions
 
 const isWaterType = 'Totodile'
-const waterStarter = new Promise ((resolve, reject) => {
+function waterStarter (isWaterType) {return new Promise ((resolve, reject) => {
     if(isWaterType === !'Squirtel' || isWaterType === !'Totodile' || isWaterType === !'Mudkip') {
         let message = `${isWaterType} no es tipus aigua!`
         resolve(message);
@@ -11,32 +11,41 @@ else {
     message = `${isWaterType} es tipus aigua, endevant entrenador!`
     reject(message)
 }
-});
+})};
 
-waterStarter
+waterStarter(isWaterType)
     .then(resolve => {console.log(resolve)})
     .catch (correctAnswer => {console.log(correctAnswer)})
 
 
 //nivell 1 - exercici 2
-const victory = false
+let gotMedal = (victory, medal, trainer)  => {
 
-let gotMedal = medal  => {
-    if (!victory) {console.log(`No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`)}
-    else {console.log(`Has aconseguit la medalla tipus ${medal}!`)
+    if (victory) {
+        let message = `Has aconseguit la medalla tipus ${medal}!`
+        return(message)
+    }
+    else {
+        let message = `No has aconseguit la medalla tipus ${medal}. ${trainer} et diu que segueixis entrenant dur!`
+        return(message)
+    }
 }
-}
-    
-const trainer = 'Erika'
-const medal = 'planta'
 
-
-const medalInfo = (medal, trainer, callback) => {
+const medalInfo = (callback, medal, trainer, victory) => {
     const medalInfo = `${medal} de ${trainer}`
-    callback (medalInfo);
+
+    try {
+        let message = gotMedal(victory, medalInfo, trainer)
+        console.log(message)
+    }
+
+    catch {
+        let message = gotMedal(victory, medalInfo, trainer)
+        console.log(message)
+    }
 }
 
-medalInfo(medal, trainer , gotMedal)
+medalInfo(gotMedal, 'foc', 'Blaine', true)
 
 
 //nivell 2
