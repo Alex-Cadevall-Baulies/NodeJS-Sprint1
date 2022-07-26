@@ -77,7 +77,7 @@ async function namePlusSalary(chosenID) {
     try {
         const employee = await getEmployee(chosenID)
         const salary = await getSalary(employee)
-        return `El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`
+        console.log(`El ID ${chosenID} correspon a ${employee.name} amb salari ${salary.salary}`)
 
     } catch (error) {
         console.log(error);
@@ -115,7 +115,7 @@ async function isBookClubFree(isBookClubAvailable) {
 
     try {
         const reservation = await bookClubBooking(isBookClubAvailable)
-        return reservation
+        console.log(reservation)
 
     } catch (error) {
         console.log(error);
@@ -145,7 +145,7 @@ async function threeTimesDouble(number1, number2, number3) {
     const doubleOfSecond = await doubleNumber(number2)
     const doubleOfThird = await doubleNumber(number3)
     const totalSum = doubleOfFirst + doubleOfSecond + doubleOfThird
-    return totalSum
+    console.log(totalSum)
 }
 
 threeTimesDouble(number1, number2, number3)
