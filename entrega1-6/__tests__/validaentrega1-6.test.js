@@ -1,6 +1,6 @@
 const { sum, substract, multiply, divide } = require('../app/entrega1-6-codi')
-const { getSalary, getEmployee, namePlusSalary} = require('../../entrega1-3')
-const {bookClubBooking, isBookClubFree } = require('../../entrega1-4')
+const { getSalary, getEmployee, namePlusSalary} = require('../app/entrega1-3')
+const {bookClubBooking, isBookClubFree } = require('../app/entrega1-4')
 
 //test entrega 1-6 (operacions)
 describe("sum tests", () => {
