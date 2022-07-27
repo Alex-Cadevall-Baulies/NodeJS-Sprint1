@@ -92,10 +92,11 @@ const getEmployee = chosenID => {
         const idName = employees.find(employees => employees.id === chosenID)
 
         if (idName !== undefined) {
+            console.log(`El ID ${chosenID} correspon a ${idName.name}`);
             resolve(idName)
         } else {
-            let error = `No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`
-            reject(error)
+            console.log(`No hem trobat cap empleat amb el ID ${chosenID} a la nostra base de dades.`)
+            reject(chosenID)
         }
     })
 }
@@ -104,29 +105,36 @@ const getEmployee = chosenID => {
 const getSalary = employee => {
     return new Promise((resolve, reject) => {
 
-        const idSalaries = salaries.find(salaries => salaries.id === employee.id)
+        let idSalaries
+        if (Number.isInteger(employee) ) {
+            idSalaries = salaries.find(salaries => salaries.id === employee)
+        }
+
+        else {idSalaries = salaries.find(salaries => salaries.id === employee.id)}
 
         if (idSalaries !== undefined) {
+            console.log(`El salari del ID ${idSalaries.id} correspon a ${idSalaries.salary}€`)
             resolve(idSalaries)
         } else {
-            let error = `El empleat ${employee.name} no disposa de salari.`
-            reject(error)
+            if (Number.isInteger(employee)) {
+            console.log(`El empleat amb ID ${employee} no disposa de salari.`)
+            reject(employee)
         }
-    })
+        else {console.log(`El empleat amb ID ${employee.id} no disposa de salari.`)
+        reject(employee.id)}
+    }})
 }
 
 //nivell 2 - exercici 3
 
-getEmployee(chosenID).then(idName => {
-    console.log(`El ID ${chosenID} correspon a ${idName.name}`);
+getEmployee(5)
+.then(getSalary)
+.then(idName => {
     return idName
-}).catch(err => {console.log(err); return err})
-
-/*
-getSalary(idName).then(idSalaries => {
-        console.log(idSalaries);
-        return idSalaries
-    }).catch(err => {console.log(err); return err})*/
+}).catch(getSalary)
+.catch(err => {
+    return err
+})
 
 
 module.exports = {
