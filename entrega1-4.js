@@ -149,6 +149,3 @@ async function threeTimesDouble(number1, number2, number3) {
 }
 
 threeTimesDouble(number1, number2, number3)
-
-//exports
-module.exports = {bookClubBooking, isBookClubFree }

@@ -135,9 +135,3 @@ getEmployee(5)
 .catch(err => {
     return err
 })
-
-
-module.exports = {
-    getSalary,
-    getEmployee
-}
